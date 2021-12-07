@@ -1,11 +1,14 @@
-import React, { Fragment } from "react";
+import React from "react";
+import BookForm from "../components/Books/BookForm";
+import { useHistory } from "react-router";
 
 const NewBook = () => {
-  return (
-    <Fragment>
-      <h1>New Book</h1>
-    </Fragment>
-  );
+  const history = useHistory();
+  const addBookHandler = (bookData) => {
+    console.log(bookData);
+    history.push("/");
+  };
+  return <BookForm onAddBook={addBookHandler} />;
 };
 
 export default NewBook;

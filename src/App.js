@@ -1,5 +1,5 @@
 import { Redirect, Route, Switch } from "react-router";
-import Layout from "./components/layout/Layout";
+import Layout from "./components/Layout/Layout";
 import AllBooks from "./pages/AllBooks";
 import BookDetail from "./pages/BookDetail";
 import NewBook from "./pages/NewBook";
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" exact>
           <Redirect to="/dashboard" />
         </Route>
-        <Route path="/dashboard" exact>
+        <Route path="/dashboard">
           <Home />
         </Route>
         <Route path="/books" exact>
