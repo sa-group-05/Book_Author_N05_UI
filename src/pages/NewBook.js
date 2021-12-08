@@ -15,7 +15,6 @@ const NewBook = () => {
     }
   }, [status, history]);
   const addBookHandler = (bookData) => {
-    console.log(bookData);
     sendRequest(bookData);
   };
 

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import classes from "./BookItem.module.css";
 const BookItem = (props) => {
+  const deleteBookItem = (bookId) => {
+    props.onDeletItem(bookId);
+  };
+
   return (
     <li className={classes.item}>
       <figure>
@@ -15,9 +19,15 @@ const BookItem = (props) => {
         View Fullscreen
       </Link>
       &nbsp;
-      <Link className="btn" to={`/books/${props.id}/delete`}>
+      <button
+        type="button"
+        className="btn"
+        onClick={() => {
+          deleteBookItem(props.id);
+        }}
+      >
         Delete
-      </Link>
+      </button>
     </li>
   );
 };

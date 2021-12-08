@@ -59,7 +59,6 @@ const BookDetail = () => {
         </div>
       </Route>
       <Route path={`${match.path}/author/:authorId`}>
-        
         <Author />
       </Route>
     </Fragment>

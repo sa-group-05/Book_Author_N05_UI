@@ -24,6 +24,9 @@ const BookList = (props) => {
       search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
     });
   };
+  const handleDeleteBook = (id) => {
+    props.onDeletItem(id);
+  };
   return (
     <Fragment>
       <div className={classes.sorting}>
@@ -34,6 +37,7 @@ const BookList = (props) => {
       <ul className={classes.list}>
         {sortedBooks.map((book) => (
           <BookItem
+            onDeletItem={handleDeleteBook}
             key={book.id}
             id={book.id}
             price={book.price}
