@@ -14,6 +14,10 @@ const BookItem = (props) => {
       <Link className="btn" to={`/books/${props.id}`}>
         View Fullscreen
       </Link>
+      &nbsp;
+      <Link className="btn" to={`/books/${props.id}/delete`}>
+        Delete
+      </Link>
     </li>
   );
 };
