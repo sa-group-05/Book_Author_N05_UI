@@ -63,11 +63,11 @@ const BookForm = (props) => {
             <input type="text" id="price" ref={priceInputRef} />
           </div>
           <div className={classes.control}>
-            <label htmlFor="text">Price</label>
+            <label htmlFor="text">Published Year</label>
             <input type="text" id="publishedYear" ref={publishedYearInputRef} />
           </div>
           <div className={classes.control}>
-            <label htmlFor="text">Price</label>
+            <label htmlFor="text">Image</label>
             <input type="text" id="imageUrl" ref={imageUrlInputRef} />
           </div>
           <div className={classes.actions}>
