@@ -11,8 +11,18 @@ const BookForm = (props) => {
   const titleInputRef = useRef();
   const priceInputRef = useRef();
 
-  const publishedYearInputRef = useRef();
-  const imageUrlInputRef = useRef();
+  const [enteredPublishedYear, setPublishedYear] = useState("");
+  const [enteredImageUrl, setenteredImageUrl] = useState("");
+
+  const publishedYearChangeHandler = (event) => {
+    console.log(event.target.value);
+    setPublishedYear(event.target.value);
+  };
+
+  const imageUrlChangeHandler = (event) => {
+    console.log(event.target.value);
+    setenteredImageUrl(event.target.value);
+  };
 
   function submitFormHandler(event) {
     event.preventDefault();
@@ -20,19 +30,21 @@ const BookForm = (props) => {
     const enteredTitle = titleInputRef.current.value;
     const enteredPrice = priceInputRef.current.value;
 
-    props.onAddBook({
+    // optional: Could validate here
+    let newData = {
       title: enteredTitle,
       price: enteredPrice,
-      publishedYear: publishedYearInputRef.current.value,
-      imageUrl: imageUrlInputRef.current.value,
-    });
+      publishedYear: enteredPublishedYear,
+      imageUrl: enteredImageUrl,
+    };
+    props.onAddBook(newData);
   }
-  const finishEnteringHandler = () => {
-    setIsEntering(false);
-  };
 
   const formFocusedHandler = () => {
     setIsEntering(true);
+  };
+  const finishEnteringHandler = () => {
+    setIsEntering(false);
   };
   return (
     <Fragment>
@@ -55,23 +67,42 @@ const BookForm = (props) => {
           )}
 
           <div className={classes.control}>
-            <label htmlFor="author">Title</label>
-            <input type="text" id="title" ref={titleInputRef} />
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              id="title"
+              ref={titleInputRef}
+              placeholder="Doraemon comic"
+            />
           </div>
           <div className={classes.control}>
-            <label htmlFor="text">Price</label>
-            <input type="text" id="price" ref={priceInputRef} />
+            <label htmlFor="price">Price</label>
+            <input
+              type="number"
+              id="price"
+              ref={priceInputRef}
+              placeholder="2000"
+            />
           </div>
           <div className={classes.control}>
-            <label htmlFor="text">Published Year</label>
-            <input type="text" id="publishedYear" ref={publishedYearInputRef} />
+            <label>Published Year</label>
+            <input
+              type="number"
+              value={enteredPublishedYear}
+              onChange={publishedYearChangeHandler}
+              placeholder="1998"
+            />
           </div>
           <div className={classes.control}>
-            <label htmlFor="text">Image</label>
-            <input type="text" id="imageUrl" ref={imageUrlInputRef} />
+            <label>Image</label>
+            <input
+              type="text"
+              value={enteredImageUrl}
+              onChange={imageUrlChangeHandler}
+            />
           </div>
           <div className={classes.actions}>
-            <button className="btn" onClick={finishEnteringHandler}>
+            <button onClick={finishEnteringHandler} className="btn">
               Add Book
             </button>
           </div>

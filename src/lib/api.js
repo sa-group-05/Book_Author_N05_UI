@@ -20,10 +20,8 @@ export async function getAllBooks() {
 }
 
 export async function getSingleBook(bookId) {
-  console.log(bookId);
   const response = await fetch(`${URL}/books/${bookId}`);
   const data = await response.json();
-  console.log(data);
   if (!response.ok) {
     throw new Error(data.message || "Could not fetch book.");
   }
@@ -34,4 +32,24 @@ export async function getSingleBook(bookId) {
   };
 
   return loadedBook;
+}
+
+export async function addBook(bookData) {
+  console.log("Add book");
+  console.log(bookData);
+  console.log(`${URL}/books`);
+  const response = await fetch(`${URL}/books`, {
+    method: "POST",
+    body: JSON.stringify(bookData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  console.log(data);
+  if (!response.ok) {
+    throw new Error(data.message || "Could not create book.");
+  }
+
+  return null;
 }

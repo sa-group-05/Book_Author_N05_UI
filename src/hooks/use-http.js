@@ -30,7 +30,6 @@ function httpReducer(state, action) {
   return state;
 }
 function useHttp(requestFunction, startWithPending = false) {
-  console.log("Start");
   const [httpState, dispatch] = useReducer(httpReducer, {
     status: startWithPending ? "pending" : null,
     data: null,
@@ -39,11 +38,9 @@ function useHttp(requestFunction, startWithPending = false) {
 
   const sendRequest = useCallback(
     async function (requestData) {
-      console.log("vinh");
-      console.log(httpState);
       dispatch({ type: "SEND" });
+      console.log("After send");
       try {
-        console.log("Middle");
         const responseData = await requestFunction(requestData);
         dispatch({ type: "SUCCESS", responseData });
       } catch (error) {

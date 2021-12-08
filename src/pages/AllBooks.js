@@ -4,7 +4,6 @@ import LoadingSpinner from "../components/UI/LoadingSpinner";
 import useHttp from "../hooks/use-http";
 import { getAllBooks } from "../lib/api";
 import NoBooksFound from "../components/Books/NoBooksFound";
-import { URL } from "../constants/Config";
 const AllBooks = () => {
   const {
     sendRequest,
@@ -28,9 +27,6 @@ const AllBooks = () => {
   if (status === "completed" && (!loadedBook || loadedBook.length === 0)) {
     return <NoBooksFound />;
   }
-  fetch(`${URL}/books`)
-    .then((res) => res.json())
-    .then((data) => console.log(data));
   return <BookList books={loadedBook} />;
 };
 
