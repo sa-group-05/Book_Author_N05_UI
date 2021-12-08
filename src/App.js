@@ -7,6 +7,7 @@ import AllAuthors from "./pages/authors/AllAuthors";
 import AuthorsDetail from "./pages/authors/AuthorsDetail";
 import NewAuthor from "./pages/authors/NewAuthor";
 import BookDetail from "./pages/BookDetail";
+import Home from "./pages/Home";
 import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
 import UpdateBook from "./pages/UpdateBook";
@@ -16,12 +17,12 @@ function App() {
   return (
     <Layout>
       <Switch>
-        <Route path="/" exact>
+        {/* <Route path="/" exact>
           <Redirect to="/books" />
-        </Route>
-        {/* <Route path="/dashboard">
-          <Home />
         </Route> */}
+        <Route path="/" exact>
+          <Home />
+        </Route>
         <Route path="/books" exact>
           <AllBooks />
         </Route>

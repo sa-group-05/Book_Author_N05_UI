@@ -12,11 +12,6 @@ const MainNavigation = () => {
       <nav className={classes.nav}>
         <ul>
           <li>
-            <NavLink to="/dashboard" activeClassName={classes.active}>
-              Home
-            </NavLink>
-          </li>
-          <li>
             <NavLink to="/books" activeClassName={classes.active}>
               List Books
             </NavLink>
