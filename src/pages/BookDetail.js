@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import { Route, useParams, useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
 import Author from "../components/Authors/Author";
-import AuthorName from "../components/Authors/AuthorName";
 import HighlightedBook from "../components/Books/HighlightedBook";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import useHttp from "../hooks/use-http";

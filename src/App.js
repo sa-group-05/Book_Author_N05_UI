@@ -1,9 +1,11 @@
 import { Redirect, Route, Switch } from "react-router";
 import Layout from "./components/Layout/Layout";
 import AllBooks from "./pages/AllBooks";
+import AllAuthors from "./pages/authors/AllAuthors";
 import BookDetail from "./pages/BookDetail";
 import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
+import UpdateBook from "./pages/UpdateBook";
 // import Home from "./pages/Home";
 
 function App() {
@@ -22,9 +24,17 @@ function App() {
         <Route path="/books/:bookId">
           <BookDetail />
         </Route>{" "}
+        <Route path="/update/:bookId">
+          <UpdateBook />
+        </Route>{" "}
         <Route path="/new-book">
           <NewBook />
         </Route>
+        <Route path="/authors" exact>
+          <AllAuthors />
+        </Route>
+        <Route path="/authors/:authorId">{/* <AuthorItem /> */}</Route>{" "}
+        <Route path="/new-author">{/* <NewAuthor /> */}</Route>
         <Route path="*">
           <NotFound />
         </Route>

@@ -18,12 +18,22 @@ const MainNavigation = () => {
           </li>
           <li>
             <NavLink to="/books" activeClassName={classes.active}>
-              All Books
+              List Books
             </NavLink>
           </li>
           <li>
             <NavLink to="/new-book" activeClassName={classes.active}>
-              Add a Book
+              Add Book
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/authors" activeClassName={classes.active}>
+              List Authors
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/new-author" activeClassName={classes.active}>
+              Add Author
             </NavLink>
           </li>
         </ul>

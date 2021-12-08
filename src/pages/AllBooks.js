@@ -1,5 +1,5 @@
 import BookList from "../components/Books/BookList";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import useHttp from "../hooks/use-http";
 import { getAllBooks } from "../lib/api";
@@ -13,7 +13,6 @@ const AllBooks = () => {
     error,
   } = useHttp(getAllBooks, true);
   const handleDeleteBook = (bookId) => {
-    console.log(bookId);
     fetch(`${URL}/books/${bookId}`, {
       method: "DELETE",
     })
