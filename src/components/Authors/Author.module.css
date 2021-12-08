@@ -1,7 +1,7 @@
-.comments {
+.author {
   text-align: center;
 }
 
-.comments > button {
+.author > button {
   font-size: 1.25rem;
 }

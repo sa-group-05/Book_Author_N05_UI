@@ -72,3 +72,18 @@ export async function getAllAuthors() {
   console.log(transformedAuthors);
   return transformedAuthors;
 }
+export async function getSingleAuthor(authorId) {
+  const response = await fetch(`${URL}/authors/${authorId}`);
+  const data = await response.json();
+  console.log(data);
+  if (!response.ok) {
+    throw new Error(data.message || "Could not fetch author.");
+  }
+
+  const loadedAuthor = {
+    id: authorId,
+    ...data,
+  };
+
+  return loadedAuthor;
+}

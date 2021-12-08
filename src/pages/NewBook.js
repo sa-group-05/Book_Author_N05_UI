@@ -2,9 +2,9 @@ import React, { Fragment, useEffect } from "react";
 import BookForm from "../components/Books/BookForm";
 import { useHistory } from "react-router";
 import useHttp from "../hooks/use-http";
-import { addBook, getAllAuthors } from "../lib/api";
-import LoadingSpinner from "../components/UI/LoadingSpinner";
-import NoBooksFound from "../components/Books/NoBooksFound";
+import { addBook } from "../lib/api";
+// import LoadingSpinner from "../components/UI/LoadingSpinner";
+// import NoBooksFound from "../components/Books/NoBooksFound";
 
 const NewBook = () => {
   const history = useHistory();

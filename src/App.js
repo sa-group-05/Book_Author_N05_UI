@@ -4,18 +4,18 @@ import AllBooks from "./pages/AllBooks";
 import BookDetail from "./pages/BookDetail";
 import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 
 function App() {
   return (
     <Layout>
       <Switch>
         <Route path="/" exact>
-          <Redirect to="/dashboard" />
+          <Redirect to="/books" />
         </Route>
-        <Route path="/dashboard">
+        {/* <Route path="/dashboard">
           <Home />
-        </Route>
+        </Route> */}
         <Route path="/books" exact>
           <AllBooks />
         </Route>
