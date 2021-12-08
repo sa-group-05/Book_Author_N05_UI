@@ -1,29 +1,37 @@
 import { URL } from "../constants/Config";
 
 export async function getAllBooks() {
-  console.log(`${URL}/books`);
-
   const response = await fetch(`${URL}/books`);
-
-  console.log(`${URL}/books`);
-  console.log(response);
   const data = await response.json();
-  console.log(data);
   if (!response.ok) {
     console.log(data);
-    throw new Error(data.message || "Could not fetch quotes.");
+    throw new Error(data.message || "Could not fetch books.");
   }
-
-  const transformedQuotes = [];
-
+  const transformedBooks = [];
   for (const key in data) {
-    const quoteObj = {
+    const bookObj = {
       id: key,
       ...data[key],
     };
-
-    transformedQuotes.push(quoteObj);
+    transformedBooks.push(bookObj);
   }
 
-  return transformedQuotes;
+  return transformedBooks;
+}
+
+export async function getSingleBook(bookId) {
+  console.log(bookId);
+  const response = await fetch(`${URL}/books/${bookId}`);
+  const data = await response.json();
+  console.log(data);
+  if (!response.ok) {
+    throw new Error(data.message || "Could not fetch book.");
+  }
+
+  const loadedBook = {
+    id: bookId,
+    ...data,
+  };
+
+  return loadedBook;
 }
