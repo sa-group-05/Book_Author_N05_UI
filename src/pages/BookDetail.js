@@ -40,6 +40,7 @@ const BookDetail = () => {
         title={loadedBook.title}
         imageUrl={loadedBook.imageUrl}
         publishedYear={loadedBook.publishedYear}
+        authorId={loadedBook.authorId}
       />
     </Fragment>
   );

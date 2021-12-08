@@ -4,10 +4,11 @@ const HighlightedBook = (props) => {
   console.log(props);
   return (
     <figure className={classes.quote}>
-      <p>{props.title}</p>
-      <figcaption>{props.price}</figcaption>
-      <figcaption>{props.publishedYear}</figcaption>
+      <p>Title: {props.title}</p>
+      <figcaption>Price: {props.price}</figcaption>
+      <figcaption>Publised Year: {props.publishedYear}</figcaption>
       <figcaption>{props.imageUrl}</figcaption>
+      <figcaption>Author: {props.authorId}</figcaption>
     </figure>
   );
 };

@@ -1,5 +1,6 @@
 import { Fragment, useRef, useState } from "react";
 import { Prompt } from "react-router";
+import AuthorFilter from "../Authors/AuthorFilter";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -8,34 +9,38 @@ import classes from "./BookForm.module.css";
 const BookForm = (props) => {
   const [isEntering, setIsEntering] = useState(false);
 
+  const [enteredPublishedYear, setPublishedYear] = useState("");
+
+  const [enteredImageUrl, setEnteredImageUrl] = useState("");
+
   const titleInputRef = useRef();
   const priceInputRef = useRef();
 
-  const [enteredPublishedYear, setPublishedYear] = useState("");
-  const [enteredImageUrl, setenteredImageUrl] = useState("");
+  const [filteredAuthor, setFilteredAuthor] = useState();
+
+  const [enteredAuthorId, setEnteredAuthorId] = useState();
 
   const publishedYearChangeHandler = (event) => {
-    console.log(event.target.value);
     setPublishedYear(event.target.value);
   };
 
   const imageUrlChangeHandler = (event) => {
-    console.log(event.target.value);
-    setenteredImageUrl(event.target.value);
+    setEnteredImageUrl(event.target.value);
   };
-
+  const filterChangeHandler = (selectedAuthor) => {
+    setEnteredAuthorId(selectedAuthor);
+    setFilteredAuthor(selectedAuthor);
+  };
   function submitFormHandler(event) {
     event.preventDefault();
-
     const enteredTitle = titleInputRef.current.value;
     const enteredPrice = priceInputRef.current.value;
-
-    // optional: Could validate here
     let newData = {
       title: enteredTitle,
       price: enteredPrice,
       publishedYear: enteredPublishedYear,
       imageUrl: enteredImageUrl,
+      authorId: Number(enteredAuthorId),
     };
     props.onAddBook(newData);
   }
@@ -46,6 +51,7 @@ const BookForm = (props) => {
   const finishEnteringHandler = () => {
     setIsEntering(false);
   };
+
   return (
     <Fragment>
       <Prompt
@@ -101,6 +107,10 @@ const BookForm = (props) => {
               onChange={imageUrlChangeHandler}
             />
           </div>
+          <AuthorFilter
+            selected={filteredAuthor}
+            onChangeFilter={filterChangeHandler}
+          />
           <div className={classes.actions}>
             <button onClick={finishEnteringHandler} className="btn">
               Add Book

@@ -53,3 +53,22 @@ export async function addBook(bookData) {
 
   return null;
 }
+
+export async function getAllAuthors() {
+  const response = await fetch(`${URL}/authors`);
+  const data = await response.json();
+  if (!response.ok) {
+    console.log(data);
+    throw new Error(data.message || "Could not fetch books.");
+  }
+  const transformedAuthors = [];
+  for (const key in data) {
+    const authorObj = {
+      id: key,
+      ...data[key],
+    };
+    transformedAuthors.push(authorObj);
+  }
+  console.log(transformedAuthors);
+  return transformedAuthors;
+}
