@@ -5,6 +5,7 @@ import Layout from "./components/Layout/Layout";
 import AllBooks from "./pages/AllBooks";
 import AllAuthors from "./pages/authors/AllAuthors";
 import AuthorsDetail from "./pages/authors/AuthorsDetail";
+import NewAuthor from "./pages/authors/NewAuthor";
 import BookDetail from "./pages/BookDetail";
 import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
@@ -39,7 +40,9 @@ function App() {
         <Route path="/authors/:authorId">
           <AuthorsDetail />
         </Route>{" "}
-        <Route path="/new-author">{/* <NewAuthor /> */}</Route>
+        <Route path="/new-author">
+          <NewAuthor />
+        </Route>
         <Route path="*">
           <NotFound />
         </Route>

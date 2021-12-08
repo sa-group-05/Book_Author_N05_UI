@@ -87,3 +87,20 @@ export async function getSingleAuthor(authorId) {
 
   return loadedAuthor;
 }
+
+export async function addAuthor(authorData) {
+  const response = await fetch(`${URL}/authors`, {
+    method: "POST",
+    body: JSON.stringify(authorData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  console.log(data);
+  if (!response.ok) {
+    throw new Error(data.message || "Could not create author.");
+  }
+
+  return null;
+}
