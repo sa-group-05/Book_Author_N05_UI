@@ -1,7 +1,10 @@
 import { Redirect, Route, Switch } from "react-router";
+import AuthorDetail from "./components/Authors/AuthorDetail";
+import HighlightedAuthor from "./components/Authors/HighlightedAuthor";
 import Layout from "./components/Layout/Layout";
 import AllBooks from "./pages/AllBooks";
 import AllAuthors from "./pages/authors/AllAuthors";
+import AuthorsDetail from "./pages/authors/AuthorsDetail";
 import BookDetail from "./pages/BookDetail";
 import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
@@ -33,7 +36,9 @@ function App() {
         <Route path="/authors" exact>
           <AllAuthors />
         </Route>
-        <Route path="/authors/:authorId">{/* <AuthorItem /> */}</Route>{" "}
+        <Route path="/authors/:authorId">
+          <AuthorsDetail />
+        </Route>{" "}
         <Route path="/new-author">{/* <NewAuthor /> */}</Route>
         <Route path="*">
           <NotFound />
