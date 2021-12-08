@@ -2,9 +2,9 @@
   /* margin: 3rem auto; */
   text-align: center;
   display: flex;
-    align-items: center;
-    z-index: 1;
-    justify-content: center; 
+  align-items: center;
+  z-index: 1;
+  justify-content: center;
 }
 
 .starting h1 {
@@ -18,47 +18,51 @@
     rgba(27, 127, 175, 1) 100%
   );
   width: 100% !important;
-  padding: 0.6rem;
+  padding: 0.8rem;
   color: white;
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
   max-width: 450px;
 }
-.centered{
-    text-align: center;
-    z-index: 1;
-    margin-top: 1rem;
-
+.centered {
+  text-align: center;
+  z-index: 1;
+  margin-top: 1rem;
 }
-.centered h2{
-    font-weight: 800;
-    padding: 0.6rem 0;
-    font-size: 1.5rem;
-    margin: 0;
+.centered h2 {
+  font-weight: 800;
+  padding: 0.6rem 0;
+  font-size: 1.5rem;
+  margin: 0;
 }
-.centered p{
-    font-weight: 100;
+.centered p {
+  font-weight: 100;
 }
-.members{
+.members {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-    z-index: 1;
-    margin-top: 2rem;
-
+  z-index: 1;
+  margin-top: 2rem;
 }
-.members div{
-    width: 200px;
+.members div {
+  width: 200px;
   height: 40px;
-background: linear-gradient(90deg, rgba(76,87,187,1) 0%, rgba(82,103,209,1) 50%, rgba(75,86,195,1) 99%);
-color: white;
-text-align: center;
-margin: 0.3rem;
-display: flex;
-    align-items: center;
-    justify-content: center;
+  background: linear-gradient(
+    90deg,
+    rgba(76, 87, 187, 1) 0%,
+    rgba(82, 103, 209, 1) 50%,
+    rgba(75, 86, 195, 1) 99%
+  );
+  color: white;
+  text-align: center;
+  margin: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.members div:hover{
-    cursor: pointer;
-   box-shadow: rgb(24, 84, 187) 0px 4px 8px -2px, rgba(17, 82, 194, 0.884) 0px 0px 0px 1px;
-        transition: all 0.2s ease-in-out;
+.members div:hover {
+  cursor: pointer;
+  box-shadow: rgb(24, 84, 187) 0px 4px 8px -2px,
+    rgba(17, 82, 194, 0.884) 0px 0px 0px 1px;
+  transition: all 0.2s ease-in-out;
 }

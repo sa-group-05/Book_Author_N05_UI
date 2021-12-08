@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { useParams, useRouteMatch } from "react-router";
+import { useParams } from "react-router";
 import HighlightedAuthor from "../../components/Authors/HighlightedAuthor";
 import LoadingSpinner from "../../components/UI/LoadingSpinner";
 import useHttp from "../../hooks/use-http";
@@ -17,8 +17,6 @@ const AuthorsDetail = () => {
   useEffect(() => {
     sendRequest(authorId);
   }, [sendRequest, authorId]);
-  console.log("AUTHOR DETAIL");
-  console.log(loadedAuthor);
   if (status === "pending") {
     return (
       <div className="centered">

@@ -4,6 +4,7 @@ import useHttp from "../../hooks/use-http";
 import NoBooksFound from "../../components/Books/NoBooksFound";
 import { getAllAuthors } from "../../lib/api";
 import AuthorsList from "../../components/Authors/AuthorsList";
+import { URL } from "../../constants/Config";
 const AllAuthors = () => {
   // [GET] all AUTHORS
   const {
@@ -15,7 +16,18 @@ const AllAuthors = () => {
   useEffect(() => {
     sendRequest();
   }, [sendRequest]);
-
+  const handleDeleteAuthor = (id) => {
+    console.log(id);
+    console.log(`${URL}/authors/${id}`);
+    fetch(`${URL}/authors/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        console.log("Delete Success!");
+        sendRequest();
+      })
+      .catch((err) => alert(err));
+  };
   if (status === "pending") {
     return (
       <div className="centered">
@@ -32,8 +44,9 @@ const AllAuthors = () => {
   ) {
     return <NoBooksFound />;
   }
-  console.log(loadedAuthors);
-  return <AuthorsList authors={loadedAuthors} />;
+  return (
+    <AuthorsList onDeletItem={handleDeleteAuthor} authors={loadedAuthors} />
+  );
 };
 
 export default AllAuthors;

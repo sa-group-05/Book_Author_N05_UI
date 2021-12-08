@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import classes from "./AuthorsItem.module.css";
-import { useHistory } from "react-router-dom";
-const AuthorsItem = ({ area, lastName, firstName, dateOfBirth, id }) => {
+const AuthorsItem = (props) => {
+  const { area, lastName, firstName, dateOfBirth, id } = props;
+  const deleteAuthorItem = (id) => {
+    props.onDeletItem(id);
+  };
+
   return (
     <li key={id} className={classes.item}>
       <figure>
@@ -16,6 +20,16 @@ const AuthorsItem = ({ area, lastName, firstName, dateOfBirth, id }) => {
       <Link className="btn" to={`/authors/${id}`}>
         View Fullscreen
       </Link>
+      &nbsp;
+      <button
+        type="button"
+        className="btn"
+        onClick={() => {
+          deleteAuthorItem(id);
+        }}
+      >
+        Delete
+      </button>
     </li>
   );
 };

@@ -33,24 +33,40 @@ a{
 
 .btn {
   text-decoration: none;
-  background-color: teal;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 5%,
+    rgba(22, 9, 121, 0.8939950980392157) 49%,
+    rgba(27, 127, 175, 1) 100%
+  );
   color: white;
   border-radius: 4px;
   padding: 0.75rem 1.5rem;
-  border: 1px solid teal;
+  border: 1px solid linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 5%,
+    rgba(22, 9, 121, 0.8939950980392157) 49%,
+    rgba(27, 127, 175, 1) 100%
+  );
   cursor: pointer;
 }
 
 .btn:hover,
-.btn:active {
-  background-color: #11acac;
-  border-color: #11acac;
+.btn:active {  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 5%,
+    rgba(22, 9, 121, 0.8939950980392157) 49%,
+    rgba(28, 128, 178, 1) 100%
+  );
+  border-color: #0756bd;
+  color: white;
+  opacity: .9;
 }
 
 .btn--flat {
   cursor: pointer;
   font: inherit;
-  color: teal;
+  color: white;
   border: none;
   background-color: none;
   text-decoration: none;

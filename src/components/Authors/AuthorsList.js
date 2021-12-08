@@ -24,7 +24,9 @@ const AuthorsList = (props) => {
       search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
     });
   };
-  console.log(props.authors);
+  const handleDeleteAuthor = (id) => {
+    props.onDeletItem(id);
+  };
   return (
     <Fragment>
       <div className={classes.sorting}>
@@ -41,6 +43,7 @@ const AuthorsList = (props) => {
             lastName={author.lastName}
             dateOfBirth={author.dateOfBirth}
             area={author.area}
+            onDeletItem={handleDeleteAuthor}
           />
         ))}
       </ul>

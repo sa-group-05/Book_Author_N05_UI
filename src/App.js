@@ -1,6 +1,4 @@
-import { Redirect, Route, Switch } from "react-router";
-import AuthorDetail from "./components/Authors/AuthorDetail";
-import HighlightedAuthor from "./components/Authors/HighlightedAuthor";
+import {Route, Switch } from "react-router";
 import Layout from "./components/Layout/Layout";
 import AllBooks from "./pages/AllBooks";
 import AllAuthors from "./pages/authors/AllAuthors";
