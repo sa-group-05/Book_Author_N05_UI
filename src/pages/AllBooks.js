@@ -40,6 +40,7 @@ const AllBooks = () => {
     return <NoBooksFound />;
   }
 
+
   return <BookList onDeletItem={handleDeleteBook} books={loadedBook} />;
 };
 

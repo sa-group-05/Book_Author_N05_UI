@@ -1,7 +1,13 @@
 import { URL } from "../constants/Config";
 
 export async function getAllBooks() {
-  const response = await fetch(`${URL}/books`);
+  const response = await fetch(`${URL}/books`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  });
   const data = await response.json();
   if (!response.ok) {
     console.log(data);
@@ -15,8 +21,13 @@ export async function getAllBooks() {
     };
     transformedBooks.push(bookObj);
   }
-
-  return transformedBooks;
+  function findEmbedded(data) {
+    return data.id === "_embedded";
+  }
+  let result = transformedBooks.find(findEmbedded).books;
+  console.log(result._link.self.href);
+  // console.log(transformedBooks);
+  return result;
 }
 
 export async function getSingleBook(bookId) {
@@ -55,7 +66,13 @@ export async function addBook(bookData) {
 }
 
 export async function getAllAuthors() {
-  const response = await fetch(`${URL}/authors`);
+  const response = await fetch(`${URL}/authors`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  });
   const data = await response.json();
   if (!response.ok) {
     console.log(data);
@@ -69,8 +86,11 @@ export async function getAllAuthors() {
     };
     transformedAuthors.push(authorObj);
   }
-  console.log(transformedAuthors);
-  return transformedAuthors;
+  function findEmbedded(data) {
+    return data.id === "_embedded";
+  }
+  let result = transformedAuthors.find(findEmbedded).authors;
+  return result;
 }
 export async function getSingleAuthor(authorId) {
   const response = await fetch(`${URL}/authors/${authorId}`);
