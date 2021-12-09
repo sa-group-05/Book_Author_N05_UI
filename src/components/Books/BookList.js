@@ -34,19 +34,32 @@ const BookList = (props) => {
           Sort {isSortingAscending ? " Descending" : " Ascending"}
         </button>
       </div>
-      <ul className={classes.list}>
-        {sortedBooks.map((book) => (
-          <BookItem
-            onDeletItem={handleDeleteBook}
-            key={book.id}
-            id={book.id}
-            price={book.price}
-            title={book.title}
-            imageUrl={book.imageUrl}
-            publishedYear={book.publishedYear}
-          />
-        ))}
-      </ul>
+
+      <table className="table table-striped table-hover table-bordered ">
+        <thead className="table-success">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Published Year</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedBooks.map((book, index) => (
+            <BookItem
+              onDeletItem={handleDeleteBook}
+              key={index}
+              id={book.id}
+              price={book.price}
+              title={book.title}
+              imageUrl={book.imageUrl}
+              publishedYear={book.publishedYear}
+            />
+          ))}
+        </tbody>
+      </table>
     </Fragment>
   );
 };

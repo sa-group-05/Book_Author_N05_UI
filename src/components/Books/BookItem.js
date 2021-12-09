@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import classes from "./BookItem.module.css";
 import { useHistory } from "react-router-dom";
+import { Fragment } from "react";
 const BookItem = (props) => {
   const history = useHistory();
+  const { id, title, price, publishedYear, imageUrl } = props;
+
   const deleteBookItem = (bookId) => {
     props.onDeletItem(bookId);
   };
@@ -10,40 +13,43 @@ const BookItem = (props) => {
     history.push("/update/" + bookId);
   };
   return (
-    <li className={classes.item}>
-      <figure>
-        <blockquote>
-          <p>{props.title}</p>
-        </blockquote>
-        <figcaption>{props.price}</figcaption>
-        <figcaption>{props.publishedYear}</figcaption>
-        <figcaption>{props.imageUrl}</figcaption>
-      </figure>
-      <Link className="btn" to={`/books/${props.id}`}>
-        View Fullscreen
-      </Link>
-      &nbsp;
-      <button
-        type="button"
-        className="btn"
-        onClick={() => updateBookHandler(props.id)}
-      >
-        UPDATE
-      </button>
+    <Fragment>
+      <tr>
+        <th scope="row">{id}</th>
+        <td>{title}</td>
+        <td>{price} VNĐ</td>
+        <td>{publishedYear}</td>
+        <td valign="middle" align="center">
+          <img src={imageUrl} alt={title} width="120" />
+        </td>
+        <td col="3">
+          {" "}
+          <Link className="btn btn-success" to={`/books/${props.id}`}>
+            <i className="fal fa-eye"></i>
+          </Link>{" "}
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => updateBookHandler(props.id)}
+          >
+            <i className="fal fa-user-edit"></i>
+          </button>
+          &nbsp;
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => {
+              deleteBookItem(props.id);
+            }}
+          >
+            <i className="fal fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
       {/* <Route path={`/books/${props.id}/update`}>
         <UpdateBook />
       </Route> */}
-      &nbsp;
-      <button
-        type="button"
-        className="btn"
-        onClick={() => {
-          deleteBookItem(props.id);
-        }}
-      >
-        Delete
-      </button>
-    </li>
+    </Fragment>
   );
 };
 

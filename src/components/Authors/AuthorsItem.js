@@ -11,14 +11,14 @@ const AuthorsItem = (props) => {
       <figure>
         <blockquote>
           <p>
-            {firstName} {lastName}
+            FullName: {firstName} {lastName}
           </p>
         </blockquote>
-        <figcaption>{dateOfBirth}</figcaption>
-        <figcaption>{area}</figcaption>
+        <figcaption>BirthDay: {dateOfBirth}</figcaption>
+        <figcaption>Area: {area}</figcaption>
       </figure>
       <Link className="btn" to={`/authors/${id}`}>
-        View Fullscreen
+        <i className="fal fa-eye"></i>
       </Link>
       &nbsp;
       <button
@@ -28,7 +28,7 @@ const AuthorsItem = (props) => {
           deleteAuthorItem(id);
         }}
       >
-        Delete
+        <i class="fal fa-trash-alt"></i>
       </button>
     </li>
   );

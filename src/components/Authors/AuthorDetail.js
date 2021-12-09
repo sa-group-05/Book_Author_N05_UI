@@ -9,10 +9,10 @@ const AuthorDetail = (props) => {
   return (
     <li key={id} className={classes.item}>
       <p>
-        {firstName}&nbsp;{lastName}
+        FullName: {firstName}&nbsp;{lastName}
       </p>
-      <p>{dateOfBirth}</p>
-      <p>{area}</p>
+      <p>BirthDay: {dateOfBirth}</p>
+      <p>Area: {area}</p>
     </li>
   );
 };
