@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import useHttp from "../../hooks/use-http";
 import { getSingleAuthor } from "../../lib/api";

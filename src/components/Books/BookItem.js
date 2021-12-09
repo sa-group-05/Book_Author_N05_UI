@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import classes from "./BookItem.module.css";
 import { useHistory } from "react-router-dom";
 import { Fragment } from "react";
 const BookItem = (props) => {

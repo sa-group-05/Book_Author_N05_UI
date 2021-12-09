@@ -60,7 +60,12 @@ const AuthForm = () => {
         if (data.jwt) {
           console.log("Successful Login");
           console.log(data.jwt);
-          authCtx.login(data.jwt);
+          const expirationTime = new Date(
+            new Date().getTime() + +1 * 3600 * 1000
+          );
+          console.log("HETHAN");
+          console.log(expirationTime);
+          authCtx.login(data.jwt, expirationTime.toISOString());
           history.replace("/");
         }
       })

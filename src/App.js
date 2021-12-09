@@ -1,4 +1,5 @@
-import { Route, Switch } from "react-router";
+import { useContext } from "react";
+import { Redirect, Route, Switch } from "react-router";
 import Layout from "./components/Layout/Layout";
 import AllBooks from "./pages/AllBooks";
 import AuthPage from "./pages/auth/AuthPage";
@@ -11,9 +12,11 @@ import Home from "./pages/Home";
 import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
 import UpdateBook from "./pages/UpdateBook";
+import AuthContext from "./store/auth-context";
 // import Home from "./pages/Home";
 
 function App() {
+  const authCtx = useContext(AuthContext);
   return (
     <Layout>
       <Switch>
@@ -23,32 +26,41 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
+        {!authCtx.isLoggedIn && (
+          <Route path="/auth">
+            <AuthPage />
+          </Route>
+        )}
         <Route path="/books" exact>
-          <AllBooks />
+          {authCtx.isLoggedIn && <AllBooks />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>
         <Route path="/books/:bookId">
-          <BookDetail />
+          {authCtx.isLoggedIn && <BookDetail />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>{" "}
         <Route path="/update/:bookId">
-          <UpdateBook />
+          {authCtx.isLoggedIn && <UpdateBook />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>{" "}
         <Route path="/new-book">
-          <NewBook />
+          {authCtx.isLoggedIn && <NewBook />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>
         <Route path="/authors" exact>
-          <AllAuthors />
+          {authCtx.isLoggedIn && <AllAuthors />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>
         <Route path="/authors/:authorId">
-          <AuthorsDetail />
+          {authCtx.isLoggedIn && <AuthorsDetail />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>{" "}
         <Route path="/new-author">
-          <NewAuthor />
+          {authCtx.isLoggedIn && <NewAuthor />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>
         <Route path="/welcome" exact>
           <HomePage />
-        </Route>
-        <Route path="/auth" exact>
-          <AuthPage />
         </Route>
         <Route path="*">
           <NotFound />
