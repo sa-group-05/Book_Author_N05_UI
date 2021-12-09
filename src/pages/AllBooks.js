@@ -40,7 +40,7 @@ const AllBooks = () => {
     return <NoBooksFound />;
   }
 
-
+  console.log(loadedBook);
   return <BookList onDeletItem={handleDeleteBook} books={loadedBook} />;
 };
 

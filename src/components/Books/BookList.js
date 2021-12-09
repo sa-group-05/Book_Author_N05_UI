@@ -27,6 +27,8 @@ const BookList = (props) => {
   const handleDeleteBook = (id) => {
     props.onDeletItem(id);
   };
+  console.log("SORT");
+  console.log(sortedBooks);
   return (
     <Fragment>
       <div className={classes.sorting}>
@@ -47,17 +49,22 @@ const BookList = (props) => {
           </tr>
         </thead>
         <tbody>
-          {sortedBooks.map((book, index) => (
-            <BookItem
-              onDeletItem={handleDeleteBook}
-              key={index}
-              id={book.id}
-              price={book.price}
-              title={book.title}
-              imageUrl={book.imageUrl}
-              publishedYear={book.publishedYear}
-            />
-          ))}
+          {sortedBooks.map((book, index) => {
+            let linkId = book._links.self.href;
+            let bookId = linkId.split("/");
+            let resultId = bookId[bookId.length - 1];
+            return (
+              <BookItem
+                onDeletItem={handleDeleteBook}
+                key={resultId}
+                id={resultId}
+                price={book.price}
+                title={book.title}
+                imageUrl={book.imageUrl}
+                publishedYear={book.publishedYear}
+              />
+            );
+          })}
         </tbody>
       </table>
     </Fragment>

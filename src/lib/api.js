@@ -25,7 +25,7 @@ export async function getAllBooks() {
     return data.id === "_embedded";
   }
   let result = transformedBooks.find(findEmbedded).books;
-  console.log(result._link);
+  console.log(result);
   // console.log(transformedBooks);
   return result;
 }
