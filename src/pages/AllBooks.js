@@ -15,6 +15,11 @@ const AllBooks = () => {
   const handleDeleteBook = (bookId) => {
     fetch(`${URL}/books/${bookId}`, {
       method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
     })
       .then(() => {
         console.log("Delete Success!");

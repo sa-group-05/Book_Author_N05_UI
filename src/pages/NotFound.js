@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
+import NotFoundPage from "../components/NotFoundPage/NotFoundPage";
 
 const NotFound = () => {
   return (
-    <div className="centered">
-      <p>Page not found!</p>
-    </div>
+    <Fragment>
+      <NotFoundPage />
+    </Fragment>
   );
 };
 

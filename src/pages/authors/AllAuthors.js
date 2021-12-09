@@ -21,6 +21,11 @@ const AllAuthors = () => {
     console.log(`${URL}/authors/${id}`);
     fetch(`${URL}/authors/${id}`, {
       method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
     })
       .then(() => {
         console.log("Delete Success!");

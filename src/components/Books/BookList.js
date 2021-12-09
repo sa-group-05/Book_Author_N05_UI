@@ -50,14 +50,11 @@ const BookList = (props) => {
         </thead>
         <tbody>
           {sortedBooks.map((book, index) => {
-            let linkId = book._links.self.href;
-            let bookId = linkId.split("/");
-            let resultId = bookId[bookId.length - 1];
             return (
               <BookItem
                 onDeletItem={handleDeleteBook}
-                key={resultId}
-                id={resultId}
+                key={index}
+                id={book.id}
                 price={book.price}
                 title={book.title}
                 imageUrl={book.imageUrl}

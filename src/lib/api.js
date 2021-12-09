@@ -21,13 +21,7 @@ export async function getAllBooks() {
     };
     transformedBooks.push(bookObj);
   }
-  function findEmbedded(data) {
-    return data.id === "_embedded";
-  }
-  let result = transformedBooks.find(findEmbedded).books;
-  console.log(result);
-  // console.log(transformedBooks);
-  return result;
+  return transformedBooks;
 }
 
 export async function getSingleBook(bookId) {
@@ -46,18 +40,16 @@ export async function getSingleBook(bookId) {
 }
 
 export async function addBook(bookData) {
-  console.log("Add book");
-  console.log(bookData);
-  console.log(`${URL}/books`);
   const response = await fetch(`${URL}/books`, {
     method: "POST",
     body: JSON.stringify(bookData),
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
     },
   });
   const data = await response.json();
-  console.log(data);
   if (!response.ok) {
     throw new Error(data.message || "Could not create book.");
   }
@@ -86,14 +78,16 @@ export async function getAllAuthors() {
     };
     transformedAuthors.push(authorObj);
   }
-  function findEmbedded(data) {
-    return data.id === "_embedded";
-  }
-  let result = transformedAuthors.find(findEmbedded).authors;
-  return result;
+  return transformedAuthors;
 }
 export async function getSingleAuthor(authorId) {
-  const response = await fetch(`${URL}/authors/${authorId}`);
+  const response = await fetch(`${URL}/authors/${authorId}`, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  });
   const data = await response.json();
   console.log(data);
   if (!response.ok) {
@@ -113,7 +107,9 @@ export async function addAuthor(authorData) {
     method: "POST",
     body: JSON.stringify(authorData),
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
     },
   });
   const data = await response.json();

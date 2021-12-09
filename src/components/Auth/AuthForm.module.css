@@ -1,5 +1,5 @@
 .auth {
-  margin: 3rem auto;
+  margin: 8rem auto;
   width: 95%;
   max-width: 25rem;
   border-radius: 6px;
@@ -53,8 +53,8 @@
   cursor: pointer;
   font: inherit;
   color: white;
-  background-color: #9f5ccc;
-  border: 1px solid #9f5ccc;
+  background-color: #172b89;
+  border: 1px solid #172b89;
   border-radius: 4px;
   padding: 0.5rem 2.5rem;
 }
