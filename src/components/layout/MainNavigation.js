@@ -31,6 +31,16 @@ const MainNavigation = () => {
               Add Author
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/auth" activeClassName={classes.active}>
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/logout" activeClassName={classes.active}>
+              Logout
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

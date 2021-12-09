@@ -1,6 +1,8 @@
-import {Route, Switch } from "react-router";
+import { Route, Switch } from "react-router";
 import Layout from "./components/Layout/Layout";
 import AllBooks from "./pages/AllBooks";
+import AuthPage from "./pages/auth/AuthPage";
+import HomePage from "./pages/auth/HomePage";
 import AllAuthors from "./pages/authors/AllAuthors";
 import AuthorsDetail from "./pages/authors/AuthorsDetail";
 import NewAuthor from "./pages/authors/NewAuthor";
@@ -41,6 +43,12 @@ function App() {
         </Route>{" "}
         <Route path="/new-author">
           <NewAuthor />
+        </Route>
+        <Route path="/welcome" exact>
+          <HomePage />
+        </Route>
+        <Route path="/auth" exact>
+          <AuthPage />
         </Route>
         <Route path="*">
           <NotFound />
