@@ -14,7 +14,9 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 7%, rgba(22,9,121,1) 49%, rgba
   padding: 0 10%;
     background-color: #008080; */
 }
-
+.header li.logout:hover{
+cursor: pointer;
+}
 .logo {
   font-size: 1.5432rem;
   color: white;

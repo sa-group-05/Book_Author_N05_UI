@@ -6,7 +6,10 @@ import classes from "./MainNavigation.module.css";
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
-  console.log(authCtx);
+  const logoutHandler = () => {
+    authCtx.logout();
+  };
+
   return (
     <header className={classes.header}>
       <Link to="/">
@@ -51,10 +54,12 @@ const MainNavigation = () => {
             </li>
           )}
           {authCtx.isLoggedIn && (
-            <li>
-              <NavLink to="/logout" activeClassName={classes.active}>
-                Logout
-              </NavLink>
+            <li
+              className="logout"
+              style={{ color: "#88dfdf" }}
+              onClick={logoutHandler}
+            >
+              Logout
             </li>
           )}
         </ul>
