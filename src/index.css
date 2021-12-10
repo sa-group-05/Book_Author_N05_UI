@@ -8,6 +8,8 @@ body {
   background-color: rgb(255,253,252);
     -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  color: #000;
+
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
@@ -66,7 +68,7 @@ a{
 .btn--flat {
   cursor: pointer;
   font: inherit;
-  color: white;
+  color: #000;
   border: none;
   background-color: none;
   text-decoration: none;
@@ -76,6 +78,6 @@ a{
 
 .btn--flat:hover,
 .btn--flat:active {
-  background-color: teal;
+  background-color: #172b89;
   color: white;
 }

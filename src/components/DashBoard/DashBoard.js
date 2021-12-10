@@ -12,7 +12,7 @@ const DashBoard = () => {
       </section>
       <div className={classes.centered}>
         <h2>Members</h2>
-        <p>Group 10</p>
+        <p>Group 05</p>
       </div>
       <div className={classes.members}>
         <div>

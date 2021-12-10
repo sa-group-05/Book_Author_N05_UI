@@ -8,6 +8,7 @@ import AuthorList from "./AuthorList";
 const Author = () => {
   const params = useParams();
   const { authorId } = params;
+
   const {
     sendRequest,
     status,
@@ -39,9 +40,6 @@ const Author = () => {
     console.log(loadedAuthor);
     content = <p className="centered">No infomation!</p>;
   }
-
-  console.log("AUTHOR VINH");
-  console.log(loadedAuthor);
   return <section className={classes.author}>{content}</section>;
 };
 

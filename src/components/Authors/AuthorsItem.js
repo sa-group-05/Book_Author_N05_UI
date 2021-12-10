@@ -5,7 +5,9 @@ const AuthorsItem = (props) => {
   const deleteAuthorItem = (id) => {
     props.onDeletItem(id);
   };
-
+  const updateAuthorHandler = (id) => {
+    console.log(id);
+  };
   return (
     <li key={id} className={classes.item}>
       <figure>
@@ -21,6 +23,20 @@ const AuthorsItem = (props) => {
         <i className="fal fa-eye"></i>
       </Link>
       &nbsp;
+      <Link
+        to={{
+          pathname: `author/update/${id}`,
+        }}
+      >
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => updateAuthorHandler(props.id)}
+        >
+          <i className="fal fa-user-edit"></i>
+        </button>
+      </Link>{" "}
+      &nbsp;
       <button
         type="button"
         className="btn"
@@ -28,7 +44,7 @@ const AuthorsItem = (props) => {
           deleteAuthorItem(id);
         }}
       >
-        <i class="fal fa-trash-alt"></i>
+        <i className="fal fa-trash-alt"></i>
       </button>
     </li>
   );

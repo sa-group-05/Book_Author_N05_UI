@@ -5,8 +5,9 @@ import NoBooksFound from "../Books/NoBooksFound";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./AuthorFilter.module.css";
 const AuthorFilter = (props) => {
-    
   const dropdownChangeHandler = (event) => {
+    console.log("Vinh EDIT");
+    console.log(event.target.value);
     props.onChangeFilter(event.target.value);
   };
   // [GET] all AUTHORS

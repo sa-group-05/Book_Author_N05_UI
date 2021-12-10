@@ -53,7 +53,7 @@ const BookDetail = () => {
             className="btn--flat"
             to={`${match.url}/author/${loadedBook.authorId}`}
           >
-            Author Information
+            View author information
           </Link>
         </div>
       </Route>

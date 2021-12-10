@@ -7,6 +7,7 @@ import HomePage from "./pages/auth/HomePage";
 import AllAuthors from "./pages/authors/AllAuthors";
 import AuthorsDetail from "./pages/authors/AuthorsDetail";
 import NewAuthor from "./pages/authors/NewAuthor";
+import UpdateAuthor from "./pages/authors/UpdateAuthor";
 import BookDetail from "./pages/BookDetail";
 import Home from "./pages/Home";
 import NewBook from "./pages/NewBook";
@@ -41,6 +42,10 @@ function App() {
         </Route>{" "}
         <Route path="/update/:bookId">
           {authCtx.isLoggedIn && <UpdateBook />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
+        </Route>{" "}
+        <Route path="/author/update/:authorId">
+          {authCtx.isLoggedIn && <UpdateAuthor />}
           {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>{" "}
         <Route path="/new-book">

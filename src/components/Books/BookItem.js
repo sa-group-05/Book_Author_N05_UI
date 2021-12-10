@@ -9,7 +9,7 @@ const BookItem = (props) => {
     props.onDeletItem(bookId);
   };
   const updateBookHandler = (bookId) => {
-    history.push("/update/" + bookId);
+    // history.push("/update/" + bookId);
   };
   return (
     <Fragment>
@@ -26,13 +26,19 @@ const BookItem = (props) => {
           <Link className="btn btn-success" to={`/books/${props.id}`}>
             <i className="fal fa-eye"></i>
           </Link>{" "}
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={() => updateBookHandler(props.id)}
+          <Link
+            to={{
+              pathname: `/update/${props.id}`,
+            }}
           >
-            <i className="fal fa-user-edit"></i>
-          </button>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => updateBookHandler(props.id)}
+            >
+              <i className="fal fa-user-edit"></i>
+            </button>
+          </Link>{" "}
           &nbsp;
           <button
             type="button"
