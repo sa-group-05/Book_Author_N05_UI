@@ -7,7 +7,7 @@ const DashBoard = () => {
     <Fragment>
       <section className={classes.starting}>
         <div>
-          <span>Subproject_DHKTPM14_N10 vs BOOK - AUTHOR</span>
+          <span>Subproject_DHKTPM14_N05 vs BOOK - AUTHOR</span>
         </div>
       </section>
       <div className={classes.centered}>
