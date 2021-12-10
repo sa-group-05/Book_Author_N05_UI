@@ -10,6 +10,7 @@ import NewAuthor from "./pages/authors/NewAuthor";
 import UpdateAuthor from "./pages/authors/UpdateAuthor";
 import BookDetail from "./pages/BookDetail";
 import Home from "./pages/Home";
+import HomeBook from "./pages/HomeBook";
 import NewBook from "./pages/NewBook";
 import NotFound from "./pages/NotFound";
 import UpdateBook from "./pages/UpdateBook";
@@ -32,6 +33,9 @@ function App() {
             <AuthPage />
           </Route>
         )}
+        <Route path="/home" exact>
+          <HomeBook />
+        </Route>
         <Route path="/books" exact>
           {authCtx.isLoggedIn && <AllBooks />}
           {!authCtx.isLoggedIn && <Redirect to="/auth" />}

@@ -18,6 +18,11 @@ const MainNavigation = () => {
       </Link>
       <nav className={classes.nav}>
         <ul>
+          <li>
+            <NavLink to="/home" activeClassName={classes.active}>
+              Home
+            </NavLink>
+          </li>
           {authCtx.isLoggedIn && (
             <li>
               <NavLink to="/books" activeClassName={classes.active}>

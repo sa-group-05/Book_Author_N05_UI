@@ -10,9 +10,8 @@
     justify-content: space-between;
     align-items: center;
     background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 7%, rgba(22,9,121,1) 49%, rgba(27,127,175,1) 99%);      /* height: 5rem;
-  padding: 0 10%;
-    background-color: #008080; */
+background: linear-gradient(90deg, rgba(2,0,36,1) 7%, rgba(22,9,121,1) 49%, rgba(27,127,175,1) 99%);      
+z-index: 100;
 }
 .header li.logout:hover{
 cursor: pointer;
