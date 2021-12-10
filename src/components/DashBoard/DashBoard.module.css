@@ -43,6 +43,7 @@
   width: 100%;
   z-index: 1;
   margin-top: 2rem;
+      justify-content: center;
 }
 .members div {
   width: 200px;
@@ -52,6 +53,7 @@
     rgba(76, 87, 187, 1) 0%,
     rgba(82, 103, 209, 1) 50%,
     rgba(75, 86, 195, 1) 99%
+    
   );
   color: white;
   text-align: center;

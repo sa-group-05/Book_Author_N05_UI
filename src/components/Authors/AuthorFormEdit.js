@@ -81,7 +81,7 @@ const AuthorFormEdit = (props) => {
         }
       />
       <Card>
-        <h2>FORM ADD AUTHOR</h2>
+        <h2>FORM UPDATE AUTHOR</h2>
 
         <form
           onFocus={formFocusedHandler}

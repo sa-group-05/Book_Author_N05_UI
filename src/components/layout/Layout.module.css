@@ -1,5 +1,6 @@
 .main {
-  margin: 5rem auto;
+  /* margin: 5rem auto; */
+  margin: 5rem auto 0;
   width: 90%;
-  max-width: 40rem;
+  /* max-width: 40rem; */
 }

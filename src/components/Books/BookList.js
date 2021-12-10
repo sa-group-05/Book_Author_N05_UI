@@ -40,12 +40,24 @@ const BookList = (props) => {
       <table className="table table-striped table-hover table-bordered ">
         <thead className="table-success">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Price</th>
-            <th scope="col">Published Year</th>
-            <th scope="col">Image</th>
-            <th scope="col">Actions</th>
+            <th className="text-center" scope="col">
+              #
+            </th>
+            <th className="text-center" scope="col">
+              Title
+            </th>
+            <th className="text-center" scope="col">
+              Price
+            </th>
+            <th className="text-center" scope="col">
+              Published Year
+            </th>
+            <th className="text-center" scope="col">
+              Image
+            </th>
+            <th className="text-center" scope="col">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>
