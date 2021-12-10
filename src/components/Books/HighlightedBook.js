@@ -8,7 +8,9 @@ const HighlightedBook = (props) => {
         <p>Title: {props.title}</p>
         <figcaption>Price: {props.price}</figcaption>
         <figcaption>Publised Year: {props.publishedYear}</figcaption>
-        <figcaption>{props.imageUrl}</figcaption>
+        <figcaption valign="middle" align="center">
+          <img src={props.imageUrl} alt={props.title} width="120" />
+        </figcaption>
         <span>AuthorId: {props.authorId}</span>
       </div>
     </Fragment>
