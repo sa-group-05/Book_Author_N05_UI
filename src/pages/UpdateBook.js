@@ -1,12 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import BookFormEdit from "../components/Books/BookFormEdit";
-import { useHistory, useLocation, useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import useHttp from "../hooks/use-http";
 import { addBook } from "../lib/api";
 import { URL } from "../constants/Config";
-// import LoadingSpinner from "../components/UI/LoadingSpinner";
-// import NoBooksFound from "../components/Books/NoBooksFound";
-
 const UpdateBook = () => {
   const history = useHistory();
   const params = useParams();
@@ -20,9 +17,24 @@ const UpdateBook = () => {
   const addBookHandler = (bookData) => {
     sendRequest(bookData);
   };
-  
-  const updateBookHandler = async (data) => {
-    console.log(data);
+
+  const updateBookHandler = (data) => {
+    if (data) {
+      fetch(`${URL}/books`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+        .then((data) => {
+          console.log("Success Update");
+          history.push("/books");
+        })
+        .catch((err) => console.log(err));
+    }
   };
   return (
     <Fragment>

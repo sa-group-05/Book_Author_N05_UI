@@ -8,12 +8,11 @@ import classes from "./BookForm.module.css";
 
 const BookForm = (props) => {
   const [isEntering, setIsEntering] = useState(false);
-  console.log();
   const [enteredPublishedYear, setPublishedYear] = useState("");
   const [enteredImageUrl, setEnteredImageUrl] = useState("");
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredPrice, setEnteredPrice] = useState("");
-
+  const [bookId, setBookId] = useState();
   const [filteredAuthor, setFilteredAuthor] = useState();
   const [enteredAuthorId, setEnteredAuthorId] = useState();
   useEffect(() => {
@@ -25,17 +24,15 @@ const BookForm = (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.book);
-        console.log(data.author);
         setEnteredTitle(data.book.title);
         setEnteredPrice(data.book.price);
         setPublishedYear(data.book.publishedYear);
         setEnteredImageUrl(data.book.imageUrl);
         setFilteredAuthor(data.book.authorId);
-        console.log(data.book.authorId);
+        setBookId(data.book.id);
       });
   }, []);
-  console.log(filteredAuthor);
+  console.log("FILTER AUTHORL", filteredAuthor);
   const publishedYearChangeHandler = (event) => {
     setPublishedYear(event.target.value);
   };
@@ -55,6 +52,16 @@ const BookForm = (props) => {
   };
   function submitFormHandler(event) {
     event.preventDefault();
+    let data = {
+      id: bookId,
+      title: enteredTitle,
+      price: Number(enteredPrice),
+      publishedYear: Number(enteredPublishedYear),
+      imageUrl: enteredImageUrl,
+      authorId: Number(filteredAuthor),
+    };
+    console.log(data);
+    props.updateBookHandler(data);
     console.log("Update Submit");
   }
 

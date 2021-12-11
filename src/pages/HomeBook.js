@@ -1,10 +1,8 @@
-import BookList from "../components/Books/BookList";
 import React, { useEffect } from "react";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import useHttp from "../hooks/use-http";
 import { getAllBooks } from "../lib/api";
 import NoBooksFound from "../components/Books/NoBooksFound";
-import { URL } from "../constants/Config";
 import HomeListBook from "../components/Home/HomeListBook";
 const HomeBook = () => {
   const {

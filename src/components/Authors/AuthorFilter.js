@@ -39,7 +39,7 @@ const AuthorFilter = (props) => {
   return (
     <div className={classes.control}>
       <label>Author</label>
-      <select onChange={dropdownChangeHandler}>
+      <select value={props.selected} onChange={dropdownChangeHandler}>
         {loadedAuthors.map((author) => {
           return (
             <option key={author.id} value={author.id}>

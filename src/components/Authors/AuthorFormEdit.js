@@ -13,6 +13,7 @@ const AuthorFormEdit = (props) => {
   const [enteredDate, setEnteredDate] = useState("");
   const [enteredArea, setArea] = useState("");
   const [authorId, setAuthorId] = useState();
+
   useEffect(() => {
     fetch(`${URL}/authors/${props.authorId}`, {
       method: "GET",
@@ -63,8 +64,6 @@ const AuthorFormEdit = (props) => {
       area: enteredArea,
     };
     props.updateAuthorHandler(data);
-
-    // props.onAddAuthor(newData);
   }
 
   const formFocusedHandler = () => {
