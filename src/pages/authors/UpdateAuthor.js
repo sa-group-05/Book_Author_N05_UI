@@ -20,6 +20,19 @@ const UpdateAuthor = () => {
 
   const updateAuthorHandler = async (data) => {
     console.log(data);
+    fetch(`${URL}/authors`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Success Update");
+      });
   };
   return (
     <Fragment>

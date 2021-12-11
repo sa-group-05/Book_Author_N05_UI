@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./BookItemHome.css";
 const BookItemHome = (props) => {
   const { imageUrl, price, publishedYear, title } = props;
@@ -6,9 +7,9 @@ const BookItemHome = (props) => {
   return (
     <div className="col-xs-6 col-md-3">
       <div className="horizontal-content__item">
-        <span className="item-picture" valign="middle" align="center">
+        <Link className="item-picture" valign="middle" align="center">
           <img src={imageUrl} alt={title} />
-        </span>
+        </Link>
 
         <div className="item-paragraph">
           <h5>Title: {title} </h5>

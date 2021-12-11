@@ -12,6 +12,7 @@ const AuthorFormEdit = (props) => {
   const [enteredLastName, setLastName] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
   const [enteredArea, setArea] = useState("");
+  const [authorId, setAuthorId] = useState();
   useEffect(() => {
     fetch(`${URL}/authors/${props.authorId}`, {
       method: "GET",
@@ -29,9 +30,9 @@ const AuthorFormEdit = (props) => {
         const month = dateSplit[1];
         const year = dateSplit[2];
         const enterDateOfBirth = year + "-" + month + "-" + day;
-        console.log(enterDateOfBirth);
         setEnteredDate(enterDateOfBirth);
         setArea(data.area);
+        setAuthorId(data.id);
       });
   }, []);
 
@@ -55,6 +56,7 @@ const AuthorFormEdit = (props) => {
     const year = dateSplit[0];
     const enterDateOfBirth = day + "-" + month + "-" + year;
     let data = {
+      id: authorId,
       firstName: enteredFirstName,
       lastName: enteredLastName,
       dateOfBirth: enterDateOfBirth,

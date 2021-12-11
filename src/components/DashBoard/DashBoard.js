@@ -36,7 +36,7 @@ const DashBoard = () => {
         <p>Nhấn vào link dưới:</p>
       </div>
       <div className={classes.centered}>
-        <Link to="/books">Book-Author</Link>
+        <Link to="/home">Book-Author</Link>
       </div>
     </Fragment>
   );
