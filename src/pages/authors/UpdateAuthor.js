@@ -28,11 +28,10 @@ const UpdateAuthor = () => {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Success Update");
-      });
+    }).then((data) => {
+      console.log("Success Update");
+      history.push("/authors");
+    });
   };
   return (
     <Fragment>
